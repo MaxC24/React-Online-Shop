@@ -11,12 +11,12 @@ describe('<HomeCont />', function() {
 
     it('Should have an initial items state equal to an empy object', function(){
         const wrapper = mount(<HomeCont/>);
-        expect(wrapper.state().items).to.equal({});
+        expect(wrapper.state().items).to.equal([]);
     })
 
     it('Should have an initial cart state equal to an empy object', function(){
         const wrapper = mount(<HomeCont/>);
-        expect(wrapper.state().cart).to.equal({});
+        expect(wrapper.state().cart).to.equal([]);
     })
 
     it('should contain an <Title/> component', function() {
