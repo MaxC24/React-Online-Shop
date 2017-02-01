@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import HomeCont from './containers/HomeCont.jsx';
 
-const App = () => {
-    return (
-        <h1> Hello World </h1>
-    )
-}
 
-ReactDom.render(<App />, document.getElementById('app'));
+ReactDom.render(<HomeCont />, document.getElementById('app'));
