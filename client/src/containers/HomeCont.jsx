@@ -13,7 +13,8 @@ class HomeCont extends React.Component {
             cart: {
                 items: {},
                 total: 0
-            }
+            },
+            cartVisible : false
         }
         this.addToCart = this.addToCart.bind(this);
         this.removeFromCart = this.removeFromCart.bind(this);
@@ -76,13 +77,21 @@ class HomeCont extends React.Component {
 
     clearCart(e) {
         e.preventDefault();
-        //set cart state equal to the initial one
+        //set cart state equal to the initial one whenever clear button is pressed in the Cart component
         this.setState({
             cart: {
                 items: {},
                 total: 0
             }
         })
+    }
+
+    viewCart() {
+        return (e)=> {
+            this.setState({
+                cartVisible: !this.state.cartVisible
+            })
+        }
     }
 
     render() {
@@ -93,11 +102,12 @@ class HomeCont extends React.Component {
                     items={this.state.items}
                     onClick={this.addToCart}
                 />
-                <Cart 
+                { this.state.cartVisible ? <Cart 
                     cart={this.state.cart}
                     removeFromCart={this.removeFromCart}
                     clearCart={this.clearCart}
-                />
+                /> : null }
+            <button onClick={this.viewCart()}>View Cart</button>
             </div>
         )
     }

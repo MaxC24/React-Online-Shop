@@ -39,12 +39,17 @@ describe('<HomeCont />', function() {
         expect(HomeCont).to.be.defined;
     });
 
-    it('Should have an initial items state equal to an empy object', function(){
+    it('Should have an initial items state equal to an array', function(){
         const wrapper = mount(<HomeCont/>);
         expect(Array.isArray(wrapper.state().items)).to.equal(true);
     })
 
-    it('Should have an initial cart state equal to an empy object', function(){
+    it('Should have a an item states initial length equal to 0', function() {
+        const wrapper = mount(<HomeCont/>);
+        expect(wrapper.state().items).to.have.length(0);
+    })
+
+    it('Should have an initial cart state equal to an bject', function(){
         const wrapper = mount(<HomeCont/>);
         expect(typeof wrapper.state().cart).to.equal('object');
     })
@@ -63,4 +68,34 @@ describe('<HomeCont />', function() {
         const wrapper = mount(<HomeCont/>);
         expect(wrapper.find('Cart')).to.have.length(1);
     });
+
+    describe('GET request', function(){
+
+        it('Should have a item state length equal to 4', function(done){
+            const wrapper = mount(<HomeCont/>);
+            setTimeout(function() {
+                expect(wrapper.state().items).to.have.length(4);
+                done()
+            }, 0);
+        });
+
+        it('The ID of the third item in the items state should be 3', function(){
+            const wrapper = mount(<HomeCont/>);
+            setTimeout(function() {
+                expect(wrapper.state().items[3].id).to.be.equal(3);
+                done()
+            }, 0);
+        })
+
+        it('And the type equal to "white"' , function(){
+            const wrapper = mount(<HomeCont/>);
+            setTimeout(function() {
+                expect(wrapper.state().items[3].type).to.be.equal('white');
+                done()
+            }, 0);
+        })
+    })
+
+
 }) 
+

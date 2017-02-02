@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 
 import ItemList from '../client/src/components/ItemList.jsx';
@@ -11,7 +11,7 @@ const props = {
 describe("<ItemList />", function() {
 
     it('should have items props', function() {
-        const wrapper = shallow(<ItemList items={props.items} />);
+        const wrapper = mount(<ItemList items={props.items} />);
         expect(wrapper.props().items).to.be.defined;
     })
 
