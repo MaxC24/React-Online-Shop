@@ -8,7 +8,7 @@ describe("<Title />", function() {
 
     it("should have a header h2", function() {
         const wrapper = shallow(<Title />);
-        expect(wrapper.find('h1')).to.have.length(1);
+        expect(wrapper.find('h2')).to.have.length(1);
     })
 
     it("should have a props title", function() {
