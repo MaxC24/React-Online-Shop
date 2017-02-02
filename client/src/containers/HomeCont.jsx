@@ -2,6 +2,7 @@ import React from 'react';
 import Title from '../components/Title.jsx';
 import ItemList from '../components/ItemList.jsx';
 import Cart from '../components/Cart.jsx';
+import ViewCartButton from '../components/ViewCartButton.jsx';
 
 //Main container component that includes the logic of the app
 class HomeCont extends React.Component {
@@ -19,6 +20,8 @@ class HomeCont extends React.Component {
         this.addToCart = this.addToCart.bind(this);
         this.removeFromCart = this.removeFromCart.bind(this);
         this.clearCart = this.clearCart.bind(this);
+        this.closeCart = this.closeCart.bind(this);
+        this.viewCart = this.viewCart.bind(this);
     }
 
     //GET request to fetch the chocolates data from the server
@@ -86,12 +89,18 @@ class HomeCont extends React.Component {
         })
     }
 
-    viewCart() {
-        return (e)=> {
-            this.setState({
-                cartVisible: !this.state.cartVisible
-            })
-        }
+    viewCart(e) {
+        e.preventDefault();
+        this.setState({
+            cartVisible: true
+        })
+    }
+
+    closeCart(e) {
+        e.preventDefault();
+        this.setState({
+            cartVisible: false
+        })
     }
 
     render() {
@@ -106,8 +115,9 @@ class HomeCont extends React.Component {
                     cart={this.state.cart}
                     removeFromCart={this.removeFromCart}
                     clearCart={this.clearCart}
+                    closeCart={this.closeCart}
                 /> : null }
-            <button onClick={this.viewCart()}>View Cart</button>
+            <ViewCartButton viewCart={this.viewCart}/>
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cart = ({ cart, removeFromCart, clearCart }) => {
+const Cart = ({ cart, removeFromCart, clearCart, closeCart }) => {
     let key = 0;
     const items = cart['items'];
     return(
@@ -18,7 +18,7 @@ const Cart = ({ cart, removeFromCart, clearCart }) => {
             })}
             <p>total: ${cart.total}</p>
             <button id="clear" onClick={clearCart}>Clear</button>
-            <button>Close</button>
+            <button onClick={ closeCart }>Close</button>
         </div>
     )
 }
