@@ -9,12 +9,12 @@ const Cart = ({ cart, removeFromCart, clearCart, closeCart }) => {
                 <h2>Cart</h2>
                 { Object.keys(items).map(id => {
                     return (
-                        <li key={ key++ }>
-                            <p>{ items[id].type }</p>
-                            <p>${ items[id].price }</p>
-                            <p>quantity: { items[id].quantity }</p>
+                        <div className="cart-item" key={ key++ }>
+                            <div>{ items[id].type }</div>
+                            <div>${ items[id].price }</div>
+                            <div>quantity: { items[id].quantity }</div>
                             <button onClick={ removeFromCart(id) }> remove </button> 
-                        </li>
+                        </div>
                     )
                 })}
                 <p>total: ${cart.total}</p>
