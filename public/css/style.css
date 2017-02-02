@@ -3,6 +3,27 @@ body {
     font-family: Verdana, sans-serif;
 }
 
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin:5px;
+    min-width: 40px;
+    min-height: 35px;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+  box-shadow: 0 3px 3px #00823F;
+  background-color: limegreen;
+}
+
 #app {
     width: 80vw;
     min-width: 50vw;
@@ -22,9 +43,15 @@ body {
  }
 
  .item div:nth-child(2) {
-     margin-top: 8vh;
+     margin-top: 4vh;
  }  
 
+.item div:nth-child(2) p {
+     display: inline-block;
+     width: 50px;
+ }  
+
+/* selecting 'remove button'  in the item list in the cart*/
   .item div:nth-child(2) button {
      margin-left: 2vw;
  }  
@@ -36,7 +63,7 @@ body {
  }
 
  #view-cart-button {
-     margin-top: 8vh;
+     margin-top: 4vh;
      vertical-align: top;
  }
 
@@ -70,9 +97,10 @@ body {
      margin: 0px 10px 10px 0;
  }
 
+/* selecting 'total' paragraph in the cart*/
 .cart > p {
     text-align: left;
-    margin: 0 0 20px 58px;
+    margin: 0 0 20px 52px;
 }
 
 .cart-buttons {
