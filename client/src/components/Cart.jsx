@@ -2,15 +2,16 @@ import React from 'react';
 
 const Cart = ({ cart, removeFromCart, clearCart }) => {
     let key = 0;
+    const items = cart['items'];
     return(
         <div>
             <h2>Cart</h2>
-            { Object.keys(cart['items']).map(id => {
+            { Object.keys(items).map(id => {
                 return (
                     <li key={ key++ }>
-                        <p>{ cart['items'][id].type }</p>
-                        <p>{ cart['items'][id].price }</p>
-                        <p>{ cart['items'][id].quantity }</p>
+                        <p>{ items[id].type }</p>
+                        <p>${ items[id].price }</p>
+                        <p>quantity: { items[id].quantity }</p>
                         <button onClick={ removeFromCart(id) }> remove </button> 
                     </li>
                 )

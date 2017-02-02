@@ -5,8 +5,14 @@ module.exports = {
 	entry: path.join(__dirname, '/client/src/app.jsx'),
 
 	output: {
-		path: path.join(__dirname, '/client/dist/js'),
+		path: path.join(__dirname, '/public/js'),
 		filename: 'app.js'
+	},
+
+	externals: {
+		'react/addons': true,
+		'react/lib/ExecutionEnvironment': true,
+		'react/lib/ReactContext': true
 	},
 
 	module: {

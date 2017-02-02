@@ -3,6 +3,7 @@ import Title from '../components/Title.jsx';
 import ItemList from '../components/ItemList.jsx';
 import Cart from '../components/Cart.jsx';
 
+//Main container component that includes the logic of the app
 class HomeCont extends React.Component {
 
     constructor() {
@@ -21,6 +22,7 @@ class HomeCont extends React.Component {
 
     //GET request to fetch the chocolates data from the server
     componentDidMount() {
+        //get request to fetch the data of items available
         fetch('/data/inventory.json')
         .then(response => {
             return response.json();
@@ -31,23 +33,26 @@ class HomeCont extends React.Component {
             })
         })
         .catch(()=> {
-            console.log('404')
+            console.log('There was an error fetching the data');
         })
     }
 
     addToCart(item) {
         return (e) => {
             e.preventDefault();
+            //create a copy of the cart
             const cart = Object.assign({}, this.state.cart);
+            //if the item is already present in the cart update the quantity
             if(cart['items'][item.id]) {
                 cart['items'][item.id]["quantity"]++;
                 
             } else {
+                //else create it in the cart with quantity equal to 1
                 cart['items'][item.id] = item;
                 cart['items'][item.id]["quantity"] = 1;
             }
+            //update the cart total price
             cart.total += item.price;
-            e.preventDefault();
             this.setState({
                 cart
             })
@@ -57,8 +62,11 @@ class HomeCont extends React.Component {
     removeFromCart(id) {
         return (e) => {
             e.preventDefault();
+            //create a copy of the cart
             const cart = Object.assign({}, this.state.cart);
+            //update the total before removal
             cart.total -= cart['items'][id].price*cart['items'][id].quantity;
+            //delete the key-value from the cart
             delete cart['items'][id];
             this.setState({
                 cart
@@ -68,6 +76,7 @@ class HomeCont extends React.Component {
 
     clearCart(e) {
         e.preventDefault();
+        //set cart state equal to the initial one
         this.setState({
             cart: {
                 items: {},
