@@ -3,7 +3,7 @@ import Item from './Item.jsx';
 
 const ItemList = ({ items, onClick }) => {
     return (
-        <div>
+        <div id="item-list">
             {
                 items.map(item => {
                     return <Item 

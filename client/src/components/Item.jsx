@@ -3,12 +3,12 @@ import React from 'react';
 const Item = ({ item, onClick }) => {
 
     return (
-        <li>
-            <div>{item.type}</div>
-            <div>{item.description}</div>
-            <div>${item.price}</div>
+        <div className="item">
+            <div><p>{item.type}</p><p>{item.description}</p></div>
+            <div>${item.price}
             <button onClick={ onClick(item) }>Add to Cart</button>
-        </li>
+            </div>
+        </div>
     )
 }
 

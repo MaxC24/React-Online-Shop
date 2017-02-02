@@ -13,6 +13,7 @@ class HomeCont extends React.Component {
             items: [],
             cart: {
                 items: {},
+                totalQuantity: 0,
                 total: 0
             },
             cartVisible : false
@@ -57,6 +58,7 @@ class HomeCont extends React.Component {
             }
             //update the cart total price
             cart.total += item.price;
+            cart.totalQuantity++;
             this.setState({
                 cart
             })
@@ -70,6 +72,8 @@ class HomeCont extends React.Component {
             const cart = Object.assign({}, this.state.cart);
             //update the total before removal
             cart.total -= cart['items'][id].price*cart['items'][id].quantity;
+            //update the totalquantity as well
+            cart.totalQuantity -= cart['items'][id].quantity;
             //delete the key-value from the cart
             delete cart['items'][id];
             this.setState({
@@ -84,7 +88,8 @@ class HomeCont extends React.Component {
         this.setState({
             cart: {
                 items: {},
-                total: 0
+                total: 0,
+                totalQuantity:0
             }
         })
     }
@@ -117,7 +122,10 @@ class HomeCont extends React.Component {
                     clearCart={this.clearCart}
                     closeCart={this.closeCart}
                 /> : null }
-            <ViewCartButton viewCart={this.viewCart}/>
+                <ViewCartButton 
+                    ItemsQuantity={this.state.cart.totalQuantity} 
+                    viewCart={this.viewCart}
+                />
             </div>
         )
     }

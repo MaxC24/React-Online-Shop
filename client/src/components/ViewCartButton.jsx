@@ -1,8 +1,12 @@
 import React from 'react';
 
-const ViewCartButton = ({ viewCart }) => {
+const ViewCartButton = ({ viewCart, ItemsQuantity }) => {
+
     return(
-        <button onClick={viewCart}>ViewCart</button>
+        <button id="view-cart-button" onClick={viewCart}>
+            <p>VIEW CART</p>
+            <p>number of items: { ItemsQuantity }</p>
+        </button>
     )
 }
 

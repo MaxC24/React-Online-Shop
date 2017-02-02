@@ -1,0 +1,38 @@
+body {
+    box-sizing: border-box;
+}
+
+#app {
+    width: 70vw;
+    margin: 10vh 0 0 15vw;
+}
+ h2 {
+     text-align: center;
+ }
+
+ .item > div{
+     text-align: center;
+     width: 25vw;
+     margin: 4vh 1vw 0 1vw;
+     display: inline-block;
+     vertical-align: top;
+ }
+
+ .item > div:nth-child(2) {
+     margin-top: 8vh;
+ }  
+
+  .item > div:nth-child(2) button {
+     margin-left: 2vw;
+ }  
+
+
+ #item-list {
+     width: 55vw;
+     display: inline-block;
+ }
+
+ #view-cart-button {
+     margin-top: 8vh;
+     vertical-align: top;
+ }
