@@ -90,7 +90,8 @@ class HomeCont extends React.Component {
                 items: {},
                 total: 0,
                 totalQuantity:0
-            }
+            },
+            cartVisible : false
         })
     }
 
