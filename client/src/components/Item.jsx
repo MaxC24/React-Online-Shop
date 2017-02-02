@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Item = ({ item, onClick }) => {
 
@@ -10,6 +10,11 @@ const Item = ({ item, onClick }) => {
             </div>
         </div>
     )
+}
+
+Item.propTypes = {
+    item: PropTypes.object.isRequired,
+    onClick: PropTypes.func.isRequired
 }
 
 export default Item;

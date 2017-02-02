@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Item from './Item.jsx';
 
 const ItemList = ({ items, onClick }) => {
@@ -15,6 +15,11 @@ const ItemList = ({ items, onClick }) => {
             }
         </div>
     )
+}
+
+ItemList.propTypes = {
+    items: PropTypes.arrayOf(PropTypes.object.isRequired),
+    onClick: PropTypes.func.isRequired
 }
 
 export default ItemList;

@@ -124,7 +124,7 @@ class HomeCont extends React.Component {
                     closeCart={this.closeCart}
                 /> : null }
                 <ViewCartButton 
-                    ItemsQuantity={this.state.cart.totalQuantity} 
+                    itemsQuantity={this.state.cart.totalQuantity} 
                     viewCart={this.viewCart}
                 />
             </div>
