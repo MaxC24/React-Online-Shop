@@ -18,8 +18,10 @@ const Cart = ({ cart, removeFromCart, clearCart, closeCart }) => {
                     )
                 })}
                 <p>total: ${cart.total}</p>
-                <button id="clear" onClick={clearCart}>Clear</button>
-                <button onClick={ closeCart }>Close</button>
+                <div className="cart-buttons">
+                    <button id="clear" onClick={clearCart}>Clear</button>
+                    <button onClick={ closeCart }>Close</button>
+                </div>
             </div>
         </div>
     )

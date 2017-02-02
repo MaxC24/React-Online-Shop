@@ -16,7 +16,7 @@ body {
  .item div{
      text-align: center;
      width: 25vw;
-     margin: 4vh 1vw 0 1vw;
+     margin: 2vh 1vw 0 1vw;
      display: inline-block;
      vertical-align: top;
  }
@@ -55,18 +55,29 @@ body {
 }
 
  .cart {
+    text-align: center;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 40vw;
+    width: 500px;
  }
 
  .cart-item div{
      display: inline-block;
-     width: 7vw;
-     margin: 0 1vw 2vw 0;
+     text-align: left;
+     width: 100px;
+     margin: 0px 10px 10px 0;
  }
+
+.cart > p {
+    text-align: left;
+    margin: 0 0 20px 58px;
+}
+
+.cart-buttons {
+    text-align: left;
+}
 
  @media (max-width: 768px){
 
@@ -88,11 +99,6 @@ body {
          width: 230px;
          margin: 4vh .5vw 0 .5vw;
      }
-
-      .cart {
-          width: 452px;
-      }
-
       .cart-item div{ 
           width: 71px;
       }
