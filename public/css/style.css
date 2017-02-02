@@ -42,16 +42,18 @@ button:active {
      vertical-align: top;
  }
 
+/* selecting 'price' and 'remove button' parent div component in the item list*/
  .item div:nth-child(2) {
      margin-top: 4vh;
  }  
 
+/* selecting 'price' tag  in the item list*/
 .item div:nth-child(2) p {
      display: inline-block;
      width: 50px;
  }  
 
-/* selecting 'remove button'  in the item list in the cart*/
+/* selecting 'remove button'  in the item list*/
   .item div:nth-child(2) button {
      margin-left: 2vw;
  }  
@@ -65,6 +67,7 @@ button:active {
  #view-cart-button {
      margin-top: 4vh;
      vertical-align: top;
+     width: 150px;
  }
 
 /* CART MODAL */
@@ -131,7 +134,6 @@ button:active {
           width: 71px;
       }
       #view-cart-button {
-        margin-top: 8vh;
         vertical-align: top;
      }
  }
