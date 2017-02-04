@@ -1,16 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addToCart, removeFromCart, toggleVisibility } from '../actions';
+import { removeFromCart, toggleVisibility } from '../actions';
 import Cart from '../components/Cart.jsx'
 
 const mapDispatchToProps = dispatch => {
     return {
-        addToCart: (e) => {
-            e.preventDefault();
-            return (id) => {
-                dispatch(addToCart(item));
-            }
-        },
         removeFromCart: (e) => {
             e.preventDefault();
             return (id) => {
@@ -32,8 +26,8 @@ const mapStateToProps = state => {
 
  
 const CartPage = connect(
-    mapDispatchToProps,
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Cart)
 
 export default CartPage;

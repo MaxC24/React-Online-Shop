@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import Item from './Item.jsx';
 
-const ItemList = ({ items, onClick }) => {
+const ItemList = ({fetchItems, items, onClick }) => {
+    fetchItems();
     return (
         <div id="item-list">
             {
