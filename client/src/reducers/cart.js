@@ -19,12 +19,17 @@ const cart = ( state=initialCartState, action) => {
             newCartState.totalQuantity++;
             newCartState.total = state.total + action.item.price;
             return newCartState;
+            break;
         case 'REMOVE_FROM_CART':
             newCartState.totalQuantity -= newCartState.items[action.id].quantity;
             delete newCartState.items[action.id];
             return newCartState;
+            break;
+        case 'CLEAR_CART':
+            return initialCartState;
         default:
             return state;
+            break;
    }
 }
 

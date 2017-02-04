@@ -1,27 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeFromCart, toggleVisibility } from '../actions';
+import { removeFromCart, toggleVisibility, clearCart } from '../actions';
 import Cart from '../components/Cart.jsx'
 
 const mapDispatchToProps = dispatch => {
     return {
-        removeFromCart: (e) => {
-            e.preventDefault();
-            return (id) => {
+        removeFromCart: (id) => {
+            return (e) => {
+                e.preventDefault();
                 dispatch(removeFromCart(id));
             }
         },
         closeCart: (e) => {
             e.preventDefault();
-            return () => {
-                dispatch(toggleVisibility());
-            }
+            dispatch(toggleVisibility());
+        },
+        clearCart: (e) => {
+            e.preventDefault();
+            dispatch(clearCart());
         }
     }
 }
 
 const mapStateToProps = state => {
-    cart: state.cart
+    return {
+        cart: state.cart,
+        visible: state.cartVisibility
+    }
 }
 
  

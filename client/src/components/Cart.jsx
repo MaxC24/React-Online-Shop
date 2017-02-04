@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react';
 
-const Cart = ({ cart, removeFromCart, clearCart, closeCart }) => {
+const Cart = ({ cart, removeFromCart, clearCart, closeCart, visible }) => {
     let key = 0;
     const items = cart['items'];
+    if(!visible) { 
+        return null 
+    }
     return(
         <div className="modal">
             <div className="cart">
@@ -20,7 +23,7 @@ const Cart = ({ cart, removeFromCart, clearCart, closeCart }) => {
                 })}
                 <p>total: ${cart.total}</p>
                 <div className="cart-buttons">
-                    <button id="clear" onClick={clearCart}>Clear</button>
+                    <button id="clear" onClick={ clearCart }>Clear</button>
                     <button onClick={ closeCart }>Close</button>
                 </div>
             </div>
@@ -32,7 +35,8 @@ Cart.propTypes = {
     cart: PropTypes.object.isRequired,
     removeFromCart: PropTypes.func.isRequired,
     clearCart: PropTypes.func.isRequired,
-    closeCart: PropTypes.func.isRequired
+    closeCart: PropTypes.func.isRequired,
+    visible: PropTypes.bool.isRequired
 }
 
 export default Cart;

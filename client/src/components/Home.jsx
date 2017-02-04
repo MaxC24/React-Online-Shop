@@ -1,11 +1,18 @@
 import React from 'react';
-import CartPage from '../containers/CartCont.jsx';
-import ItemListPage from '../'
-import Title from './Title.jx'; 
+import CartPage from '../containers/CartPage.jsx';
+import ItemListPage from '../containers/ItemListPage.jsx';
+import Title from './Title.jsx'; 
+import ViewCartButtonPage from '../containers/ViewCartButtonPage.jsx';
 
 const Home = () => {
     return(
-        <Title />
-        <CartCont />
+        <div>
+            <Title title="Sugar Sweet Chocolate Treats"/>
+            <ItemListPage />
+            <ViewCartButtonPage />
+            <CartPage />
+        </div>
     )
 }
+
+export default Home;

@@ -10,13 +10,14 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'; 
 import ChocolateShopApp from './reducers';
-import HomeCont from './containers/HomeCont.jsx';
+//import HomeCont from './containers/HomeCont.jsx';
+import Home from './components/Home.jsx';
 
 let store = createStore(ChocolateShopApp);
 
 render(
     <Provider store={store}>
-        <HomeCont />
+        <Home />
     </Provider>,
     document.getElementById('app')
 )

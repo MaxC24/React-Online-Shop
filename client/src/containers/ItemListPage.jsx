@@ -4,23 +4,26 @@ import ItemList from '../components/ItemList.jsx';
 import { addToCart, populateItems } from '../actions';
 
 const mapDispatchToProps = dispatch => {
-    onClick: (e) => {
-        e.preventDefault();
-        return (item) => {
-            dispatch(addToCart(item));
+    return {
+        onClick: (e) => {
+            e.preventDefault();
+            return (item) => {
+                dispatch(addToCart(item));
+            }
+        },
+        fetchItems: () => {
+            fetch('/data/inventory.json')
+            .then(response => {
+                return response.json();
+                console.log('response', response);
+            })
+            .then(data => {
+                dispatch(populateItems(data.chocolates));
+            })
+            .catch(()=> {
+                console.log('There was an error fetching the data');
+            })
         }
-    },
-    fetchItems: ()=> {
-        fetch('/data/inventory.json')
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            dispatch(populateItems(data.chocolates));
-        })
-        .catch(()=> {
-            console.log('There was an error fetching the data');
-        })
     }
 }
 
