@@ -39,7 +39,7 @@ describe('<HomeCont />', function() {
         expect(HomeCont).to.be.defined;
     });
 
-    it('Should have an initial items state equal to an array', function(){
+    it('Should have an items state equal to an array', function(){
         const wrapper = mount(<HomeCont/>);
         expect(Array.isArray(wrapper.state().items)).to.equal(true);
     })
@@ -49,7 +49,7 @@ describe('<HomeCont />', function() {
         expect(wrapper.state().items).to.have.length(0);
     })
 
-    it('Should have an initial cart state equal to an bject', function(){
+    it('Should have an initial cart state equal to an object', function(){
         const wrapper = mount(<HomeCont/>);
         expect(typeof wrapper.state().cart).to.equal('object');
     })
@@ -64,12 +64,21 @@ describe('<HomeCont />', function() {
         expect(wrapper.find("ItemList")).to.have.length(1);
     });
 
-    it('should contain an <Cart/> component', function() {
+    it('should contain an <Cart/> component, after the state cart visibility is set to true', function() {
         const wrapper = mount(<HomeCont/>);
+        wrapper.setState({cartVisible: true});
         expect(wrapper.find('Cart')).to.have.length(1);
     });
 
-    describe('GET request', function(){
+    describe('<HomeCont/> Asynchronicity', function(){
+
+        it('called componentDidMount', function(){
+            const wrapper = mount(<HomeCont/>);
+            setTimeout(function() {
+                expect(HomeCont.prototype.componentDidMount.calledOnce).to.equal(true);
+                done()
+            }, 0);
+        })
 
         it('Should have a item state length equal to 4', function(done){
             const wrapper = mount(<HomeCont/>);
