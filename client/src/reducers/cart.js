@@ -9,13 +9,18 @@ const cart = ( state=initialCartState, action) => {
     const newCartState = Object.assign({}, state);
     switch(action.type) {
         case 'ADD_TO_CART':
-            newCartState.items[action.id] = action.item;
-            newCartState.items[action.id].quantity = ++;
+            const currentItem = newCartState.items[action.item.id];
+            if(currentItem) {
+                currentItem.quantity++;
+            } else {
+                currentItem = action.item;
+                currentItem.quantity = 0;
+            }
             newCartState.totalQuantity++;
-            newCartState.total = state.total + action.price;
+            newCartState.total = state.total + action.item.price;
             return newCartState;
         case 'REMOVE_FROM_CART':
-            newCartState = Object.assign({}, state);
+            newCartState.totalQuantity -= action.quantity;
             delete newCartState.items[action.id];
             return newCartState;
         default:
