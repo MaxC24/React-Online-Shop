@@ -1,23 +1,18 @@
-// import React from 'react';
-// import ReactDom from 'react-dom';
-// import HomeCont from './containers/HomeCont.jsx';
-
-
-// ReactDom.render(<HomeCont />, document.getElementById('app'));
-
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux'; 
+import { createStore, applyMiddleware, compose } from 'redux'; 
+import thunk from 'redux-thunk';
 import ChocolateShopApp from './reducers';
-//import HomeCont from './containers/HomeCont.jsx';
-import Home from './components/Home.jsx';
+import HomeContainer from './containers/HomeContainer.jsx';
 
-let store = createStore(ChocolateShopApp);
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
+let store = createStore(ChocolateShopApp, composeEnhancers(applyMiddleware(thunk)));
 
 render(
     <Provider store={store}>
-        <Home />
+        <HomeContainer />
     </Provider>,
     document.getElementById('app')
 )

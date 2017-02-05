@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react';
 import Item from './Item.jsx';
 
-const ItemList = ({ fetchItems, items, onClick }) => {
-    
-    fetchItems();
+const ItemList = ({ fetchItems, items, addToCart }) => {
 
     return (
         <div id="item-list">
@@ -12,7 +10,7 @@ const ItemList = ({ fetchItems, items, onClick }) => {
                     return <Item 
                         key={item.id}
                         item={item}
-                        onClick={onClick}
+                        onClick={ addToCart } 
                     />
                 })
             }
@@ -22,7 +20,7 @@ const ItemList = ({ fetchItems, items, onClick }) => {
 
 ItemList.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object.isRequired),
-    onClick: PropTypes.func.isRequired
+    addToCart: PropTypes.func.isRequired
 }
 
 export default ItemList;

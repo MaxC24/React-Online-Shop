@@ -3,9 +3,7 @@ import React, { PropTypes } from 'react';
 const Cart = ({ cart, removeFromCart, clearCart, closeCart, visible }) => {
     let key = 0;
     const items = cart['items'];
-    if(!visible) { 
-        return null 
-    }
+    if(!visible) {  return null }
     return(
         <div className="modal">
             <div className="cart">

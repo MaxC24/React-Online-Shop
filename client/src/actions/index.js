@@ -1,6 +1,8 @@
 export const populateItems = (items) => {
-    type: 'POPULATE_ITEMS',
-    items
+    return {
+        type: 'POPULATE_ITEMS',
+        items
+    }
 }
 
 export const addToCart = (item) => {
@@ -13,8 +15,7 @@ export const addToCart = (item) => {
 export const removeFromCart = (id) => {
     return {
         type: 'REMOVE_FROM_CART',
-        id,
-        quantity
+        id
     }
 }
 
@@ -27,5 +28,20 @@ export const toggleVisibility = () => {
 export const clearCart = () => {
     return {
         type: 'CLEAR_CART'
+    }
+}
+
+export const fetchData = () => {
+    return dispatch => {
+        fetch('/data/inventory.json')
+        .then(response => {
+            return response.json();
+        })
+        .then(data=> {
+            return dispatch(populateItems(data.chocolates));
+        })
+        .catch(()=> {
+            console.log('cannot retrieve the data');
+        })
     }
 }

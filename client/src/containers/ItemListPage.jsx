@@ -1,28 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ItemList from '../components/ItemList.jsx';
-import { addToCart, populateItems } from '../actions';
+import { addToCart, populateItems, fetchData } from '../actions';
 
 const mapDispatchToProps = dispatch => {
     return {
-        onClick: (e) => {
-            e.preventDefault();
-            return (item) => {
+        addToCart: (item) => {
+            return (e) => {
+                e.preventDefault();
                 dispatch(addToCart(item));
             }
-        },
-        fetchItems: () => {
-            fetch('/data/inventory.json')
-            .then(response => {
-                return response.json();
-                console.log('response', response);
-            })
-            .then(data => {
-                dispatch(populateItems(data.chocolates));
-            })
-            .catch(()=> {
-                console.log('There was an error fetching the data');
-            })
         }
     }
 }
