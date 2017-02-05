@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import CartPage from '../containers/CartPage.jsx';
 import ItemListPage from '../containers/ItemListPage.jsx';
 import Title from './Title.jsx'; 
@@ -22,6 +22,10 @@ class Home extends React.Component {
             </div>
         )
     } 
+}
+
+Home.propTypes = {
+    fetchItems: PropTypes.func.isRequired
 }
 
 export default Home;
