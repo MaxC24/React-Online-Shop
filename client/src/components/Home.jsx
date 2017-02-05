@@ -21,7 +21,7 @@ class Home extends React.Component {
                 <CartPage />
             </div>
         )
-    } 
+    }
 }
 
 Home.propTypes = {
