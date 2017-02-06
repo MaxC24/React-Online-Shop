@@ -4,19 +4,33 @@ import { expect } from 'chai';
 
 import ItemList from '../client/src/components/ItemList.jsx';
 
-const props = {
-    items: []
-}
+describe('<ItemList />', ()=> {
 
-describe("<ItemList />", function() {
+    const props= {
+        items: [
+            {
+                id: 0
+            }
+        ],
+        addToCart: ()=> {
+            return null;
+        }
+    };
+    const wrapper = shallow(<ItemList 
+        items={props.items} 
+        addToCart={props.addToCart}/>
+    );
 
-    it('should have items props', function() {
-        const wrapper = mount(<ItemList items={props.items} />);
-        expect(wrapper.props().items).to.be.defined;
+    it("should have a component with ID 'item-list", () => {
+        expect(wrapper.find('#item-list')).to.have.length(1);
     })
 
-    it('should have a Item Component', function(){
-        const wrapper = shallow(<ItemList items={props.items}/>);
-        expect(wrapper.find("Item")).to.be.defined;
+    it("should have a Item component", () => {
+        expect(wrapper.find('Item')).to.have.length(1);
+    })
+
+    it("should have two Items component after adding one", () => {
+        wrapper.setProps({items: [ ...props.items, { id: 1}]});
+        expect(wrapper.find('Item')).to.have.length(2);
     })
 })

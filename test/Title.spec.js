@@ -2,17 +2,17 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import Title from '../client/src/components/Title.jsx';
+import Title from '../client/src/components/Title.jsx'
 
-describe("<Title />", function() {
+describe('Title', () => {
 
-    it("should have a div with a id 'title", function() {
-        const wrapper = shallow(<Title title="Title"/>);
-        expect(wrapper.find('#title')).to.have.length(1);
+    it('should have a div', ()=> {
+        const wrapper = shallow(<Title title='title'/>);
+        expect(wrapper.find('div')).to.have.length(1);
     })
 
-    it("should have a props title", function() {
-        const wrapper = shallow(<Title title="Title"/>);
-        expect(wrapper.props().title).to.be.defined;
+    it("title component's text should say 'title': TITLE", ()=> {
+        const wrapper = shallow(<Title title='title'/>);
+        expect(wrapper.find('#title').text()).to.equal('TITLE');
     })
-})
+});
