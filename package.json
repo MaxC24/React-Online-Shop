@@ -29,7 +29,7 @@
   },
   "scripts": {
     "serve": "node ./server.js",
-    "test": "mocha -w test/helpers/browser.js test/*.spec.js",
+    "test": "mocha -w test/*.spec.js",
     "bundle": "webpack"
   }
 }

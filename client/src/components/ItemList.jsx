@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import Item from './Item.jsx';
 
 const ItemList = ({ items, addToCart }) => {
-
     return (
         <div id="item-list">
             {

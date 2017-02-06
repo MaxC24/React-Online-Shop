@@ -6,9 +6,8 @@ import thunk from 'redux-thunk';
 import ChocolateShopApp from './reducers';
 import HomeContainer from './containers/HomeContainer.jsx';
 
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
-let store = createStore(ChocolateShopApp, composeEnhancers(applyMiddleware(thunk)));
+//apply the thunk middleware when creating the store for Async actions:
+let store = createStore(ChocolateShopApp, compose(applyMiddleware(thunk)));
 
 render(
     <Provider store={store}>

@@ -3,11 +3,11 @@ import CartPage from '../containers/CartPage.jsx';
 import ItemListPage from '../containers/ItemListPage.jsx';
 import Title from './Title.jsx'; 
 import ViewCartButtonPage from '../containers/ViewCartButtonPage.jsx';
-import { fetchData } from '../actions';
 import { connect } from 'react-redux';
 
 class Home extends React.Component {
-
+    //After the Component is mounted fetch the items in the server data file
+    //then dispatch, in the 'HomeContainer' component, a Asyc action to display them
     componentDidMount() {
         this.props.fetchItems()
     }

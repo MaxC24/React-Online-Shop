@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 
+//Displays the items in the cart
 const CartItem = ({item, removeFromCart}) => {
     return(
         <div className="cart-item">
@@ -12,7 +13,8 @@ const CartItem = ({item, removeFromCart}) => {
 }
 
 CartItem.propTypes = {
-    item: PropTypes.object.isRequired
+    item: PropTypes.object.isRequired,
+    removeFromCart: PropTypes.func.isRequired
 }
 
 export default CartItem;

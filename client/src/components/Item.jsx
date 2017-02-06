@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 
+//Component to display the Items in the ItemList Component
 const Item = ({ item, onClick }) => {
 
     return (
