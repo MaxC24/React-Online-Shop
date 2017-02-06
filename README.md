@@ -53,7 +53,7 @@ APP
 - the "bundle" file is in the public/js folder and it's served as static file upon the client request sent by the Home component.
 
 
-Thank you for taking the time for evaluating my code test.
+Thank you for taking the time to evaluate my code test.
 
 
 #Original Readme File
