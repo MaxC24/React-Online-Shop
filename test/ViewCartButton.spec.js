@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
 import ViewCartButton from '../client/src/components/ViewCartButton.jsx';

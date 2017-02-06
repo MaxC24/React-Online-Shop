@@ -1,4 +1,7 @@
 import React, { PropTypes } from 'react';
+import CartItem from './CartItem.jsx';
+
+//Cart is the modal component that displays the content of the cart
 
 const Cart = ({ cart, removeFromCart, clearCart, closeCart, visible }) => {
     let key = 0;
@@ -8,16 +11,10 @@ const Cart = ({ cart, removeFromCart, clearCart, closeCart, visible }) => {
         <div className="modal">
             <div className="cart">
                 <h2>Cart</h2>
-                {/* loop through the state object cart item and render the list of items in the cart */}
+                {/* loop through the state object cart items pass it down to Cart Item where 
+                    they are rendered */}
                 { Object.keys(items).map(id => {
-                    return (
-                        <div className="cart-item" key={ key++ }>
-                            <div>{ items[id].type }</div>
-                            <div>${ items[id].price }</div>
-                            <div>quantity: { items[id].quantity }</div>
-                            <button onClick={ removeFromCart(id) }> remove </button> 
-                        </div>
-                    )
+                    return <CartItem key={key++} item={items[id]} removeFromCart={removeFromCart} />
                 })}
                 <p>total: ${cart.total}</p>
                 <div className="cart-buttons">

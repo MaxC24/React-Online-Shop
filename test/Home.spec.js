@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
 import Home from '../client/src/components/Home.jsx';
@@ -22,5 +22,9 @@ describe('<Home />', () => {
 
     it('should contain CartPage component', () => {
         expect(wrapper.find('CartPage')).to.be.defined;
-    })   
+    }) 
+
+    it("should have a fetchItems prop", () => {
+        expect(wrapper.props().fetchItems).to.be.defined;
+    })
 })

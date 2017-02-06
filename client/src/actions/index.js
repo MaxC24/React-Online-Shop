@@ -31,6 +31,8 @@ export const clearCart = () => {
     }
 }
 
+//This action return a function that dispatched a Async function that fetches the data from the server
+//works thanks to the redux-thunk middleware
 export const fetchData = () => {
     return dispatch => {
         fetch('/data/inventory.json')
