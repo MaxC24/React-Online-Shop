@@ -22,6 +22,7 @@ const mapDispatchToProps = dispatch => {
         clearCart: (e) => {
             e.preventDefault();
             dispatch(clearCart());
+            dispatch(toggleVisibility());
         }
     }
 }

@@ -6,7 +6,7 @@ const Item = ({ item, onClick }) => {
     return (
         <div className="item">
             <div><p>{item.type}</p><p>{item.description}</p></div>
-            <div><p>${item.price}</p>
+            <div><p>${item.price.toFixed(2)}</p>
             <button onClick={ onClick(item) }>Add to Cart</button>
             </div>
         </div>

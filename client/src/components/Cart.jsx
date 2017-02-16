@@ -14,7 +14,7 @@ const Cart = ({ cart, removeFromCart, clearCart, closeCart, visible }) => {
                 { Object.keys(items).map(id => {
                     return <CartItem key={key++} item={items[id]} removeFromCart={removeFromCart} />
                 })}
-                <p>total: ${cart.total}</p>
+                <p>total: ${cart.total.toFixed(2)}</p>
                 <div className="cart-buttons">
                     <button id="clear" onClick={ clearCart }>Clear</button>
                     <button onClick={ closeCart }>Close</button>
